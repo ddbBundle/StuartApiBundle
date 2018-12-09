@@ -20,5 +20,8 @@
         "psr-4": {
             "DdB\\StuartApiBundle\\": "src/"
         }
+    },
+    "require-dev": {
+        "symfony/framework-bundle": "^4.2"
     }
 }
