@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+
 <container xmlns="http://symfony.com/schema/dic/services"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xsi:schemaLocation="http://symfony.com/schema/dic/services
-        http://symfony.com/schema/dic/services/services-1.0.xsd">
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="ddb_stuart_api.stuart_api" class="DdB\StuartApiBundle\StuartApi"/>
-        <service id="DdB\StuartApiBundle\StuartApi" alias="ddb_stuart_api.stuart_api"/>
+        <service id="ddb_stuart_api.stuart_api" class="DdB\StuartApiBundle\StuartApi" public="true"/>
+
+        <service id="ddb_stuart_api.stuart_api_controller" class="DdB\StuartApiBundle\Controller\StuartApiController" public="true">
+            <argument type="service" id="ddb_stuart_api.stuart_api"/>
+        </service>
+
+        <service id="DdB\StuartApiBundle\StuartApi" alias="ddb_stuart_api.stuart_api" public="true"/>
     </services>
-</container>
+</container> 
