@@ -3,6 +3,6 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
-    <route id="stuart_api_simple" controller="ddb_stuart_api.stuart_api_controller::index" path="/">
+    <route id="stuart_api_simple" controller="ddb_stuart_api.stuart_api_controller::simpleJob" path="/simple/{pickupAddress}/{dropOffAddress}/{packageType}">
     </route>
 </routes>

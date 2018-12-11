@@ -7,7 +7,6 @@ use Stuart\Infrastructure\Authenticator;
 use Stuart\Infrastructure\Environment;
 use Stuart\Infrastructure\HttpClient;
 use Stuart\Job;
-
 use http\Exception\InvalidArgumentException;
 
 class StuartApi

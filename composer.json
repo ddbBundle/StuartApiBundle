@@ -15,7 +15,8 @@
         "symfony/config": "^4.0",
         "symfony/dependency-injection": "^4.0",
         "symfony/http-kernel": "^4.0",
-        "ext-http": "*"
+        "ext-http": "*",
+        "symfony/serializer": "^4.2"
     },
     "autoload": {
         "psr-4": {

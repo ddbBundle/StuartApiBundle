@@ -9,6 +9,7 @@
 
         <service id="ddb_stuart_api.stuart_api_controller" class="DdB\StuartApiBundle\Controller\StuartApiController" public="true">
             <argument type="service" id="ddb_stuart_api.stuart_api"/>
+            <argument type="service" id="serializer"/>
         </service>
 
         <service id="DdB\StuartApiBundle\StuartApi" alias="ddb_stuart_api.stuart_api" public="true"/>
