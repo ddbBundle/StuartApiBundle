@@ -8,6 +8,7 @@ use Stuart\Infrastructure\Environment;
 use Stuart\Infrastructure\HttpClient;
 use Stuart\Job;
 use http\Exception\InvalidArgumentException;
+use Stuart\SchedulingSlots;
 
 class StuartApi
 {
@@ -44,5 +45,22 @@ class StuartApi
         $jobOrder = $this->client->createJob($job);
 
         return $jobOrder;
+    }
+
+    /**
+     * @param string $city
+     * @return |null
+     * @throws \Exception
+     */
+    public function getNextPickupSlot($city = "Bordeaux"){
+        $startTime = new \DateTime();
+        $startTime->add(new \DateInterval("PT2H"));
+        $slots = $this->client->getSchedulingSlotsAtPickup($city, $startTime);
+        foreach ($slots->getSlots() as $slot){
+            if($slot['start'] > $startTime){
+                return $slot["start"];
+            }
+        }
+        return null;
     }
 }

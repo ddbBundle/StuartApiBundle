@@ -5,4 +5,7 @@
 
     <route id="stuart_api_simple" controller="ddb_stuart_api.stuart_api_controller::simpleJob" path="/simple/{pickupAddress}/{dropOffAddress}/{packageType}">
     </route>
+
+    <route id="stuart_api_next_pickup" controller="ddb_stuart_api.stuart_api_controller::nextPickupSlot" path="/nextPickup">
+    </route>
 </routes>
