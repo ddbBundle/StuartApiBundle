@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<routes xmlns="http://symfony.com/schema/routing"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="stuart_api_simple" controller="ddb_stuart_api.stuart_api_controller::simpleJob" path="/simple/{pickupAddress}/{dropOffAddress}/{packageType}">
+    </route>
+
+    <route id="stuart_api_next_pickup" controller="ddb_stuart_api.stuart_api_controller::nextPickupSlot" path="/nextPickup">
+    </route>
+</routes>
