@@ -17,6 +17,7 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->scalarNode("private_key")->defaultNull()->end()
                 ->scalarNode("public_key")->defaultNull()->end()
+                ->enumNode("environment")->values(["SANDBOX", "PRODUCTION"])->defaultValue("SANDBOX")->end()
         ->end();
 
         return $treeBuilder;

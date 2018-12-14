@@ -9,6 +9,7 @@ use Stuart\Infrastructure\HttpClient;
 use Stuart\Job;
 use http\Exception\InvalidArgumentException;
 use Stuart\SchedulingSlots;
+use Symfony\Component\HttpFoundation\Request;
 
 class StuartApi
 {
@@ -19,7 +20,7 @@ class StuartApi
 
     private $client;
 
-    public function __construct(string $privateKey, string $publicKey)
+    public function __construct(string $privateKey, string $publicKey, string $environment)
     {
         if(!$privateKey || !$publicKey){
             throw new InvalidArgumentException("Please provide a public and a private key to use this bundle");
@@ -27,17 +28,22 @@ class StuartApi
         $this->privateKey = $privateKey;
         $this->publicKey = $publicKey;
 
-        $environment = Environment::SANDBOX;
+        if($environment === "PRODUCTION"){
+            $environment = Environment::PRODUCTION;
+        } else {
+            $environment = Environment::SANDBOX;
+        }
 
         $authenticator = new Authenticator($environment, $publicKey, $privateKey);
 
         $this->client = new Client(new HttpClient($authenticator));
     }
 
-    public function addSimpleJob($pickupAddress, $dropOffAddress, $packageType = 'small'){
+    public function addSimpleJob($pickupAddress, $dropOffAddress, $pickupAt,  $packageType = 'small'){
         $job = new Job();
 
-        $job->addPickup($pickupAddress);
+        $job->addPickup($pickupAddress)
+            ->setPickupAt($pickupAt);
 
         $job->addDropOff($dropOffAddress)
             ->setPackageType($packageType);

@@ -23,5 +23,6 @@ class StuartApiExtension extends Extension
         $definition = $container->getDefinition("ddb_stuart_api.stuart_api");
         $definition->setArgument(0, $config['private_key']);
         $definition->setArgument(1, $config['public_key']);
+        $definition->setArgument(2, $config['environment']);
     }
 }

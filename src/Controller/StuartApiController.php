@@ -6,6 +6,7 @@ use DdB\StuartApiBundle\StuartApi;
 use Stuart\Job;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Serializer\Serializer;
 
 class StuartApiController extends AbstractController
@@ -39,9 +40,10 @@ class StuartApiController extends AbstractController
         }
     }
 
-    public function simpleJob($pickupAddress, $dropOffAddress, $packageType = 'small')
+    public function simpleJob(Request $request, $pickupAddress, $dropOffAddress, $packageType = 'small')
     {
-        $job = $this->api->addSimpleJob($pickupAddress, $dropOffAddress, $packageType);
+        $pickupAt = $request->request->get("pickupAt");
+        $job = $this->api->addSimpleJob($pickupAddress, $dropOffAddress, $pickupAt, $packageType);
         if($job instanceof Job){
             return $this->json($this->serializer->serialize($job, 'json'));
         }
