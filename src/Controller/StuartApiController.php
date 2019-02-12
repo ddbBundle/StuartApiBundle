@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Serializer\Serializer;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class StuartApiController extends AbstractController
 {
@@ -19,11 +20,16 @@ class StuartApiController extends AbstractController
      * @var Serializer
      */
     private $serializer;
+    /**
+     * @var TranslatorInterface
+     */
+    private $translator;
 
-    public function __construct(StuartApi $api, Serializer $serializer)
+    public function __construct(StuartApi $api, Serializer $serializer, TranslatorInterface $translator)
     {
         $this->api = $api;
         $this->serializer = $serializer;
+        $this->translator = $translator;
     }
 
     public function index()
@@ -45,8 +51,13 @@ class StuartApiController extends AbstractController
         $pickupAt = $request->request->get("pickupAt");
         $job = $this->api->addSimpleJob($pickupAddress, $dropOffAddress, $pickupAt, $packageType);
         if($job instanceof Job){
-            return $this->json($this->serializer->serialize($job, 'json'));
+            return JsonResponse::fromJsonString($this->serializer->serialize($job, 'json'));
         }
-        return $this->json($this->serializer->encode($job, 'json'));
+        //If it's not an instance of Job that means an error occurred
+        $error = $job->error;
+        return new JsonResponse([
+            'error' => $error,
+            'message' => $this->translator->trans($error, [], 'Errors')
+        ], 500);
     }
 }
