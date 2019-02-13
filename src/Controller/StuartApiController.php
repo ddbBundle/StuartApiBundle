@@ -37,27 +37,45 @@ class StuartApiController extends AbstractController
         
     }
 
-    public function nextPickupSlot($city = "Bordeaux"){
-        $slot = $this->api->getNextPickupSlot($city);
-        if($slot !== null){
-            return new JsonResponse($slot);
-        } else {
-            return new JsonResponse("No slots found", 404);
+    /**
+     * @param $city
+     * @return JsonResponse
+     */
+    public function nextPickupSlot($city){
+
+        if($city == null){
+            return new JsonResponse([
+                'message' => $this->translator->trans('CITY_NOT_FOUND', [], 'Errors')
+            ], 500);
         }
+
+        try{
+            $slot = $this->api->getNextPickupSlot($city);
+        } catch (\Exception $exception) {
+            return new JsonResponse([
+                'message' => $this->translator->trans($exception->getMessage(), [], 'Errors')
+            ], 500);
+        }
+        return new JsonResponse($slot);
     }
 
+    /**
+     * @param Request $request
+     * @param $pickupAddress
+     * @param $dropOffAddress
+     * @param string $packageType
+     * @return JsonResponse
+     */
     public function simpleJob(Request $request, $pickupAddress, $dropOffAddress, $packageType = 'small')
     {
         $pickupAt = $request->request->get("pickupAt");
-        $job = $this->api->addSimpleJob($pickupAddress, $dropOffAddress, $pickupAt, $packageType);
-        if($job instanceof Job){
-            return JsonResponse::fromJsonString($this->serializer->serialize($job, 'json'));
+        try {
+            $job = $this->api->addSimpleJob($pickupAddress, $dropOffAddress, $pickupAt, $packageType);
+        } catch (\Exception $exception) {
+            return new JsonResponse([
+                'message' => $this->translator->trans($exception->getMessage(), [], 'Errors')
+            ], 500);
         }
-        //If it's not an instance of Job that means an error occurred
-        $error = $job->error;
-        return new JsonResponse([
-            'error' => $error,
-            'message' => $this->translator->trans($error, [], 'Errors')
-        ], 500);
+        return JsonResponse::fromJsonString($this->serializer->serialize($job, 'json'));
     }
 }

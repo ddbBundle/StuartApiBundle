@@ -1,115 +1,115 @@
-JOB_NOT_FOUND:                                    "L'emploi ne peut pas être trouvé".
-CLIENT_NOT_FOUND:                                 "Client non trouvé".
-ADDRESS_NOT_FOUND:                                "Adresse non trouvée".
-CITY_NOT_FOUND:                                   "Ville non trouvée".
-EMAIL_VALIDATE_ERROR:                             "Email is not correct".
-PHONE_VALIDATE_ERROR:                             "Téléphone incorrect".
-PASSWORD_VALIDATE_ERROR:                          "Mot de passe incorrect".
-CATEGORY_VALIDATE_ERROR:                          "Catégorie incorrecte".
+JOB_NOT_FOUND:                                    "L'emploi ne peut pas être trouvé"
+CLIENT_NOT_FOUND:                                 "Client non trouvé"
+ADDRESS_NOT_FOUND:                                "Adresse non trouvée"
+CITY_NOT_FOUND:                                   "Ville non trouvée"
+EMAIL_VALIDATE_ERROR:                             "Email is not correct"
+PHONE_VALIDATE_ERROR:                             "Téléphone incorrect"
+PASSWORD_VALIDATE_ERROR:                          "Mot de passe incorrect"
+CATEGORY_VALIDATE_ERROR:                          "Catégorie incorrecte"
 CANT_GEOCODE_ADDRESS:                             "L'adresse ne peut pas être géocodée"
-DEVICE_NOT_FOUND:                                 "Appareil non trouvé".
-RATING_NOT_FOUND:                                 "Note non trouvée".
-CREDIT_CARD_NOT_FOUND:                            "Carte de crédit introuvable".
-TRANSPORT_TYPE_NOT_FOUND:                         "Type de transport non trouvé".
-LATITUDE_VALIDATION_ERROR:                        "Latitude n'est pas correcte".
-LONGITUDE_VALIDATION_ERROR:                       "La longitude n'est pas correcte".
-DRIVER_DEVICE_DEVICE_LOCATION_NOT_FOUND:          "L'emplacement du périphérique du pilote n'est pas trouvé".
-DRIVER_STATUS_NOT_FOUND:                          "Statut du pilote introuvable".
-INCIDENT_NOT_FOUND:                               "Incident non trouvé".
-INCIDENT_TYPE_NOT_NOT_FOUND:                      "Type d'incident non trouvé".
-INCIDENT_CREATOR_TYPE_NOT_NOT_FOUND:              "Incident creator type not found".
-ORIGIN_PLACE_NOT_FOUND:                           "Lieu d'origine non trouvé".
-DESTINATION_PLACE_NOT_FOUND:                      "Lieu de destination non trouvé".
-COUPON_CODE_NOT_FOUND:                            "Code coupon non trouvé".
-JOB_TYPE_NOT_NOT_FOUND:                           "Type de travail introuvable".
-JOB_QUOTE_NOT_FOUND:                              "Offre d'emploi non trouvée".
-JOB_INVITATION_NOT_FOUND:                         "Invitation d'emploi non trouvée".
-BILLING_ADDRESS_NOT_FOUND:                        "Adresse de facturation non définie".
-JOB_INVITATION_ACCEPT_ERROR:                      "Erreur dans l'acceptation d'une invitation à travailler".
-PLACE_NOT_FOUND:                                  "Lieu non trouvé".
-PLACE_TYPE_NOT_FOUND:                             "Type de lieu non trouvé".
-PLACE_ADDRESS_NOT_NOT_SPECIFIC:                   "L'adresse n'est pas assez précise".
-PRICING_METHOD_NOT_FOUND:                         "Méthode de prix introuvable".
+DEVICE_NOT_FOUND:                                 "Appareil non trouvé"
+RATING_NOT_FOUND:                                 "Note non trouvée"
+CREDIT_CARD_NOT_FOUND:                            "Carte de crédit introuvable"
+TRANSPORT_TYPE_NOT_FOUND:                         "Type de transport non trouvé"
+LATITUDE_VALIDATION_ERROR:                        "Latitude n'est pas correcte"
+LONGITUDE_VALIDATION_ERROR:                       "La longitude n'est pas correcte"
+DRIVER_DEVICE_DEVICE_LOCATION_NOT_FOUND:          "L'emplacement du périphérique du pilote n'est pas trouvé"
+DRIVER_STATUS_NOT_FOUND:                          "Statut du pilote introuvable"
+INCIDENT_NOT_FOUND:                               "Incident non trouvé"
+INCIDENT_TYPE_NOT_NOT_FOUND:                      "Type d'incident non trouvé"
+INCIDENT_CREATOR_TYPE_NOT_NOT_FOUND:              "Incident creator type not found"
+ORIGIN_PLACE_NOT_FOUND:                           "Lieu d'origine non trouvé"
+DESTINATION_PLACE_NOT_FOUND:                      "Lieu de destination non trouvé"
+COUPON_CODE_NOT_FOUND:                            "Code coupon non trouvé"
+JOB_TYPE_NOT_NOT_FOUND:                           "Type de travail introuvable"
+JOB_QUOTE_NOT_FOUND:                              "Offre d'emploi non trouvée"
+JOB_INVITATION_NOT_FOUND:                         "Invitation d'emploi non trouvée"
+BILLING_ADDRESS_NOT_FOUND:                        "Adresse de facturation non définie"
+JOB_INVITATION_ACCEPT_ERROR:                      "Erreur dans l'acceptation d'une invitation à travailler"
+PLACE_NOT_FOUND:                                  "Lieu non trouvé"
+PLACE_TYPE_NOT_FOUND:                             "Type de lieu non trouvé"
+PLACE_ADDRESS_NOT_NOT_SPECIFIC:                   "L'adresse n'est pas assez précise"
+PRICING_METHOD_NOT_FOUND:                         "Méthode de prix introuvable"
 DEVICE_IS_NOT_PROPERTY_PROPERTY_OF_CLIENT:        "L'appareil donné n'est pas la propriété du client donné"
 JOB_N'EST_PAS_UNE_PROPRIÉTÉ_DU_CLIENT:            "Le travail donné n'est pas la propriété du client donné"
 PAYMENT_DECLINED:                                 "Le paiement a été refusé"
-NO_DRIVERS_AVAILABLE:                             "Aucun pilote disponible pour ce travail".
+NO_DRIVERS_AVAILABLE:                             "Aucun pilote disponible pour ce travail"
 NEW_JOB_STATUS_ALREADY_SET:                       "Le nouveau statut fourni est déjà défini pour le travail"
-LOGIN_PASSWORD_INCORRECT:                         "Le mot de passe n'est pas correct".
-LOGIN_EMAIL_INCORRECT:                            "L'email n'est pas correct".
+LOGIN_PASSWORD_INCORRECT:                         "Le mot de passe n'est pas correct"
+LOGIN_EMAIL_INCORRECT:                            "L'email n'est pas correct"
 INVALID_JOB_TYPE:                                 "Le type de travail n'est pas correct"
 PERMISSION_DENIED:                                "Permission refusée"
-WRONG_CURRENT_PASSWORD:                           "Mot de passe actuel incorrect".
+WRONG_CURRENT_PASSWORD:                           "Mot de passe actuel incorrect"
 USER_DISABLED:                                    "L'utilisateur est désactivé"
-OUT_OF_RANGE:                                     "Cet emplacement est hors de portée".
+OUT_OF_RANGE:                                     "Cet emplacement est hors de portée"
 DRIVER_BUSY_CANNOT_CHANGE_STATUS:                 "Le conducteur est occupé. Impossible de modifier le statut"
 CLIENT_REGISTER_EMAIL_EXISTENT:                   "L'email du client existe"
-JOB_INVITATION_NOT_AVAILABLE:                     "Offre d'emploi non disponible".
-PAYMENT_PLATFORM_ERROR:                           "Erreur de plate-forme de paiement".
-GEO_CODER_ERROR:                                  "Erreur de géocodage".
-CITY_CREATE_ERROR:                                "La ville n'est pas correcte".
-DELIVERY_NOT_FOUND:                               "Livraison non trouvée".
-INCIDENT_STATUS_TYPE_NOT_FOUND:                   "Incident status type not found".
-USERNAME_NOT_FOUND:                               "Nom d'utilisateur non trouvé".
-USER_NOT_FOUND:                                   "Utilisateur introuvable".
-SET_DELIVERY_STATUS_PICKED_ERROR:                 "Définir le statut de livraison choisi erreur".
-SET_DELIVERY_STATUS_DELIVERED_ERROR:              "Définir le statut de livraison livré erreur".
-DRIVER_DEVICE_ERROR:                              "Driver device error".
+JOB_INVITATION_NOT_AVAILABLE:                     "Offre d'emploi non disponible"
+PAYMENT_PLATFORM_ERROR:                           "Erreur de plate-forme de paiement"
+GEO_CODER_ERROR:                                  "Erreur de géocodage"
+CITY_CREATE_ERROR:                                "La ville n'est pas correcte"
+DELIVERY_NOT_FOUND:                               "Livraison non trouvée"
+INCIDENT_STATUS_TYPE_NOT_FOUND:                   "Incident status type not found"
+USERNAME_NOT_FOUND:                               "Nom d'utilisateur non trouvé"
+USER_NOT_FOUND:                                   "Utilisateur introuvable"
+SET_DELIVERY_STATUS_PICKED_ERROR:                 "Définir le statut de livraison choisi erreur"
+SET_DELIVERY_STATUS_DELIVERED_ERROR:              "Définir le statut de livraison livré erreur"
+DRIVER_DEVICE_ERROR:                              "Driver device error"
 JOB_QUOTE_ERROR:                                  "Erreur d'offre d'emploi"
-JOB_PICKED_NOT_AVAILABLE:                         "Job picked not available".
-JOB_DELIVERED_NOT_AVAILABLE:                      "Job delivered not available".
-BILLING_ACCOUNT_ERROR:                            "Erreur dans le compte de facturation".
-PLATFORM_TRANSACTION_ERROR:                       "Erreur de transaction de plate-forme".
-SET_DELIVERY_TRAVEL_ERROR:                        "Définir erreur de parcours de livraison".
+JOB_PICKED_NOT_AVAILABLE:                         "Job picked not available"
+JOB_DELIVERED_NOT_AVAILABLE:                      "Job delivered not available"
+BILLING_ACCOUNT_ERROR:                            "Erreur dans le compte de facturation"
+PLATFORM_TRANSACTION_ERROR:                       "Erreur de transaction de plate-forme"
+SET_DELIVERY_TRAVEL_ERROR:                        "Définir erreur de parcours de livraison"
 DRIVER_BUSY_CANNOT_ACCEPT_INVITATION:             "Le travail ne peut être accepté. Le chauffeur est occupé"
-VERIFICATION_CODE_ERROR:                          "Erreur de code de vérification".
+VERIFICATION_CODE_ERROR:                          "Erreur de code de vérification"
 JOB_DISTANCE_PAS_AUTORISÉ:                        "Distance de travail non autorisée"
 JOB_TIME_NOT_ALLOWED:                             "Temps de travail non autorisé"
-DRIVER_ERROR_CANNOT_CANNOT_CHANGE_TO_SAME_STATUS: "Status Driver cannot change to same status".
-JOB_TYPE_NOT_AVAILABLE:                           "Type d'emploi non disponible".
-COUPON_NOT_AVAILABLE:                             "Coupon non disponible pour ce travail".
-ROUTE_NOT_VALID:                                  "Itinéraire non valide".
-ROUTE_PROVIDER_ERROR:                             "Erreur Google interne".
-CLIENT_UPDATING_ERROR:                            "Erreur de mise à jour du client".
+DRIVER_ERROR_CANNOT_CANNOT_CHANGE_TO_SAME_STATUS: "Status Driver cannot change to same status"
+JOB_TYPE_NOT_AVAILABLE:                           "Type d'emploi non disponible"
+COUPON_NOT_AVAILABLE:                             "Coupon non disponible pour ce travail"
+ROUTE_NOT_VALID:                                  "Itinéraire non valide"
+ROUTE_PROVIDER_ERROR:                             "Erreur Google interne"
+CLIENT_UPDATING_ERROR:                            "Erreur de mise à jour du client"
 JOB_QUOTE_ALREADY_EXIST:                          "Les offres d'emploi existent déjà. Dupliquer le travail"
 DRIVER_REGISTER_EMAIL_EXIST:                      "L'email du chauffeur existe"
 DRIVER_REGISTER_PHONE_PHONE_EXISTENT:             "Le téléphone du chauffeur existe"
 DRIVER_REFERRER_DONT_EXISTENT:                    "Le référent n'existe pas"
 JOB_INVITATION_ACCEPT_ERROR_SAME_DRIVER:          "Driver invitation accept error. Même conducteur"
-JOB_NOT_ALLOW_TO_CANCEL:                          "Le travail n'est pas annulable".
+JOB_NOT_ALLOW_TO_CANCEL:                          "Le travail n'est pas annulable"
 DATE_RANGE_REQUIRED:                              "Période de temps requise pour cet appel API"
-DATE_FORMAT_ERROR:                                "Le format de date fourni n'est pas valide (AAAA-MM-JJ)".
+DATE_FORMAT_ERROR:                                "Le format de date fourni n'est pas valide (AAAA-MM-JJ)"
 DATE_REQUISE:                                     "La date doit être fournie"
-JOB_NOT_EVALUABLE:                                "L'emploi n'est pas évaluable".
-DRIVER_CANNOT_CHANGE_STATUS:                      "Changement de statut non autorisé".
-DRIVER_REFERRER_DONT_EXIST_EXIST_SOFT_CHECK:      "Referrer do not exist (soft check)".
+JOB_NOT_EVALUABLE:                                "L'emploi n'est pas évaluable"
+DRIVER_CANNOT_CHANGE_STATUS:                      "Changement de statut non autorisé"
+DRIVER_REFERRER_DONT_EXIST_EXIST_SOFT_CHECK:      "Referrer do not exist (soft check)"
 NE PEUT PAS_ENREGISTRER_LE_DISPOSITIF:            "Impossible d'enregistrer l'appareil"
-JOB_QUOTES_NOT_NOT_AVAILABLE:                     "Offres d'emploi non disponibles".
+JOB_QUOTES_NOT_NOT_AVAILABLE:                     "Offres d'emploi non disponibles"
 DUPLICATE_JOB:                                    "Dupliquer un travail"
 DEVISES_INCOMPATIBLES:                            "Devises incompatibles sur cette transaction"
 CARTE_DE_CRÉDIT_N'EST_PAS_UN_BIEN_DU_CLIENT:      "La carte de crédit n'est pas la propriété du client"
 ERROR_GETTING_CLIENT:                             "Erreur dans l'obtention du client"
 INCORRECT_BOUNDING_BOX:                           "Boîte de délimitation incorrecte"
-JOB_INVALID_STATUS:                               "Le travail doit être livré pour pouvoir être retourné".
-CLIENT_CANT_HAVE_HAVE_DRIVER_REFERRAL:            "Client can´t use driver referrals".
-DRIVER_CANT_HAVE_CLIENT_REFERRAL:                 "Driver can´t use client referrals".
+JOB_INVALID_STATUS:                               "Le travail doit être livré pour pouvoir être retourné"
+CLIENT_CANT_HAVE_HAVE_DRIVER_REFERRAL:            "Client can´t use driver referrals"
+DRIVER_CANT_HAVE_CLIENT_REFERRAL:                 "Driver can´t use client referrals"
 SMS_CANT_BE_SENT:                                 "Le SMS ne peut pas être envoyé"
 JOB_INVITATION_EXPIRÉE:                           "L'invitation a expiré"
-JOB_INVITATION_ACCEPTED_BY_ANOTHER_DRIVER:        "L'invitation de travail a été acceptée par un autre conducteur".
+JOB_INVITATION_ACCEPTED_BY_ANOTHER_DRIVER:        "L'invitation de travail a été acceptée par un autre conducteur"
 JOB_INVITATION_JOB_CANCELED:                      "Le travail a été annulé"
-DRIVER_CANT_HAVE_SALESMAN_REFERRAL:               "Driver can´t use salesman referrals".
-CREDIT_CARD_IS_ASSOCIATED_TO_A_RUNNING_JOB:       "La carte de crédit est associée à un job en cours".
+DRIVER_CANT_HAVE_SALESMAN_REFERRAL:               "Driver can´t use salesman referrals"
+CREDIT_CARD_IS_ASSOCIATED_TO_A_RUNNING_JOB:       "La carte de crédit est associée à un job en cours"
 JOB_NOT_RETURNING:                                "Le travail ne revient pas"
 JOB_INVITATION_ACCEPTÉE:                          "L'invitation est déjà acceptée"
-DRIVER_NOT_FOUND:                                 "Lecteur non trouvé".
-NO_ACCESS_FROM_THIS_USER:                         "L'utilisateur ne peut pas accéder à cette ressource".
-NO_UPDATE_FROM_THIS_USER:                         "L'utilisateur ne peut pas mettre à jour cette ressource".
-INVALID_GRANT:                                    "Le jeton d'accès fourni est invalide".
-APP_NOT_FOUND:                                    "App not found".
-UNKNOWN_ERROR:                                    "Erreur inconnue".
+DRIVER_NOT_FOUND:                                 "Lecteur non trouvé"
+NO_ACCESS_FROM_THIS_USER:                         "L'utilisateur ne peut pas accéder à cette ressource"
+NO_UPDATE_FROM_THIS_USER:                         "L'utilisateur ne peut pas mettre à jour cette ressource"
+INVALID_GRANT:                                    "Le jeton d'accès fourni est invalide"
+APP_NOT_FOUND:                                    "App not found"
+UNKNOWN_ERROR:                                    "Erreur inconnue"
 NOT_FOUND:                                        "Non trouvé"
-INVALID_TRANSITION:                               "Cet enregistrement ne peut pas passer dans l'état demandé".
+INVALID_TRANSITION:                               "Cet enregistrement ne peut pas passer dans l'état demandé"
 BAD_REQUEST:                                      "Mauvaise demande"
-SAME_ORIGIN_AND_DESTINATION:                      "Même adresse d'origine et de destination".
-INVALID_PACKAGE_SIZE:                             "Taille de paquet incorrecte".
+SAME_ORIGIN_AND_DESTINATION:                      "Même adresse d'origine et de destination"
+INVALID_PACKAGE_SIZE:                             "Taille de paquet incorrecte"
 ADRESSE_CONTACT_TÉLÉPHONE_REQUIS:                 "Veuillez fournir un numéro de téléphone de contact"
