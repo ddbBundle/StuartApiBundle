@@ -7,9 +7,7 @@ use Stuart\Infrastructure\Authenticator;
 use Stuart\Infrastructure\Environment;
 use Stuart\Infrastructure\HttpClient;
 use Stuart\Job;
-use http\Exception\InvalidArgumentException;
 use Stuart\SchedulingSlots;
-use Symfony\Component\HttpFoundation\Request;
 
 class StuartApi
 {
@@ -20,10 +18,17 @@ class StuartApi
 
     private $client;
 
+    /**
+     * StuartApi constructor.
+     * @param string $privateKey
+     * @param string $publicKey
+     * @param string $environment
+     * @throws \Exception
+     */
     public function __construct(string $privateKey, string $publicKey, string $environment)
     {
         if(!$privateKey || !$publicKey){
-            throw new InvalidArgumentException("Please provide a public and a private key to use this bundle");
+            throw new \Exception("Please provide a public and a private key to use this bundle");
         }
         $this->privateKey = $privateKey;
         $this->publicKey = $publicKey;
@@ -39,6 +44,14 @@ class StuartApi
         $this->client = new Client(new HttpClient($authenticator));
     }
 
+    /**
+     * @param $pickupAddress
+     * @param $dropOffAddress
+     * @param $pickupAt
+     * @param string $packageType
+     * @return mixed|Job
+     * @throws \Exception
+     */
     public function addSimpleJob($pickupAddress, $dropOffAddress, $pickupAt,  $packageType = 'small'){
         $job = new Job();
 
@@ -50,23 +63,30 @@ class StuartApi
 
         $jobOrder = $this->client->createJob($job);
 
+        if(!$jobOrder instanceof Job){
+            throw new \Exception($jobOrder->error);
+        }
+
         return $jobOrder;
     }
 
     /**
      * @param string $city
-     * @return |null
+     * @return \DateTime
      * @throws \Exception
      */
-    public function getNextPickupSlot($city = "Bordeaux"){
+    public function getNextPickupSlot($city){
         $startTime = new \DateTime();
         $startTime->add(new \DateInterval("PT2H"));
         $slots = $this->client->getSchedulingSlotsAtPickup($city, $startTime);
+        if(!$slots instanceof SchedulingSlots){
+            throw new \Exception($slots->error);
+        }
         foreach ($slots->getSlots() as $slot){
             if($slot['start'] > $startTime){
                 return $slot["start"];
             }
         }
-        return null;
+        throw new \Exception('NOT_FOUND');
     }
 }
