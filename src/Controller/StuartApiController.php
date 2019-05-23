@@ -66,24 +66,36 @@ class StuartApiController extends AbstractController
         return new JsonResponse($slot);
     }
 
-    /**
-     * @param Request $request
-     * @param $pickupAddress
-     * @param $dropOffAddress
-     * @param string $packageType
-     * @return JsonResponse
-     */
-    public function simpleJob(Request $request, $pickupAddress, $dropOffAddress, $packageType = 'small')
-    {
-        $pickupAt = $request->request->get("pickupAt");
+    public function validateJob(Request $request){
         try {
-            $job = $this->api->addSimpleJob($pickupAddress, $dropOffAddress, $pickupAt, $packageType);
+            $job = $this->api->createJobObjectFromRequest($request);
+            $response = $this->api->validateJob($job);
         } catch (\Exception $exception) {
             return new JsonResponse([
                 'message' => $this->translator->trans($exception->getMessage(), [], 'Errors')
             ], 500);
         }
-        return JsonResponse::fromJsonString($this->serializer->serialize($job, 'json'));
+        return new JsonResponse(['message' => 'delivery.valid']);
+    }
+
+    public function priceJob(Request $request){
+        try {
+            $job = $this->api->createJobObjectFromRequest($request);
+            $response = $this->api->priceJob($job, true);
+        } catch (\Exception $exception) {
+            return new JsonResponse([
+                'message' => $this->translator->trans($exception->getMessage(), [], 'Errors')
+            ], 500);
+        }
+
+        if($request->request->get('addVat')){
+            $priceTaxExcluded = $response->amount;
+            $priceTaxIncluded = (float)sprintf('%.2f',$priceTaxExcluded +$priceTaxExcluded * ($this->api->getVatRate()/ 100));
+            $response->amount = $priceTaxIncluded;
+        }
+        return new JsonResponse($response);
+    }
+
     public function webhook(Request $request){
         if($this->eventDispatcher){
             $event = new WebhookEvent($request);
