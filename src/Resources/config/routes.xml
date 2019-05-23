@@ -8,4 +8,7 @@
 
     <route id="stuart_api_next_pickup" controller="ddb_stuart_api.stuart_api_controller::nextPickupSlot" path="/nextPickup/{city}">
     </route>
+
+    <route id="stuart_api_webhook" controller="ddb_stuart_api.stuart_api_controller::webhook" path="/webhook">
+    </route>
 </routes>
