@@ -24,5 +24,7 @@ class StuartApiExtension extends Extension
         $definition->setArgument(0, $config['private_key']);
         $definition->setArgument(1, $config['public_key']);
         $definition->setArgument(2, $config['environment']);
+        $definition->setArgument(3, $config['vat_rate']);
+        $definition->setArgument(4, $config['authorized_webhook_ips']);
     }
 }

@@ -3,9 +3,15 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
-    <route id="stuart_api_simple" controller="ddb_stuart_api.stuart_api_controller::simpleJob" path="/simple/{pickupAddress}/{dropOffAddress}/{packageType}">
+    <route id="stuart_api_validate" controller="ddb_stuart_api.stuart_api_controller::validateJob" path="/validate">
+    </route>
+
+    <route id="stuart_api_pricing" controller="ddb_stuart_api.stuart_api_controller::priceJob" path="/price">
     </route>
 
     <route id="stuart_api_next_pickup" controller="ddb_stuart_api.stuart_api_controller::nextPickupSlot" path="/nextPickup/{city}">
+    </route>
+
+    <route id="stuart_api_webhook" controller="ddb_stuart_api.stuart_api_controller::webhook" path="/webhook">
     </route>
 </routes>
