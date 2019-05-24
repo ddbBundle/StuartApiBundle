@@ -9,6 +9,15 @@ stuart_api:
   private_key: "stuart super private key"
   public_key: "stuart public key"
   environment: "SANDBOX" // OR "PRODUCTION"
+  vat_rate: 20
+    authorized_webhook_ips:
+      sandbox:
+        - "34.254.62.41"
+        - "54.194.139.211"
+      production:
+        - "108.128.110.19"
+        - "54.171.243.90"
+        - "52.51.60.65"
 ```
 
 ## Functions
@@ -36,6 +45,8 @@ StuartApiEvents.php defines constants for the event names
 #### WebhookEvent.php
 
 This event redispatches any requests on the /webhook route. You can register an EventSubscriberInterface in your application to listen to these events and update your orders accordingly.
+
+Only Request coming from the whitelisted ips in the configuration will be allowed through and only for the corresponding environment.
 
 ```php
 namespace App\EventSubscriber;

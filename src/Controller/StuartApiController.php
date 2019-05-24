@@ -11,6 +11,7 @@ use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -97,9 +98,16 @@ class StuartApiController extends AbstractController
     }
 
     public function webhook(Request $request){
-        if($this->eventDispatcher){
-            $event = new WebhookEvent($request);
-            $this->eventDispatcher->dispatch(StuartApiEvents::WEBHOOK_API, $event);
+
+        $env = $this->api->getEnvironment();
+
+        if(in_array($_SERVER['REMOTE_ADDR'], $this->api->getuthorizedWebhookIps()[strtolower($env)]))
+        {
+            if($this->eventDispatcher){
+                $event = new WebhookEvent($request);
+                $this->eventDispatcher->dispatch(StuartApiEvents::WEBHOOK_API, $event);
+            }
         }
+        return new Response();
     }
 }

@@ -19,7 +19,11 @@ class StuartApi
 
     private $client;
 
+    private $environment;
+
     private $vatRate;
+
+    private $authorizedWebhookIps;
 
     /**
      * StuartApi constructor.
@@ -29,7 +33,7 @@ class StuartApi
      * @param float $vatRate
      * @throws \Exception
      */
-    public function __construct(string $privateKey, string $publicKey, string $environment, float $vatRate)
+    public function __construct(string $privateKey, string $publicKey, string $environment, float $vatRate, array $authorizedWebhookIps)
     {
         if(!$privateKey || !$publicKey){
             throw new \Exception("Please provide a public and a private key to use this bundle");
@@ -41,13 +45,17 @@ class StuartApi
 
         if($environment === "PRODUCTION"){
             $environment = Environment::PRODUCTION;
+            $this->environment = "PRODUCTION";
         } else {
             $environment = Environment::SANDBOX;
+            $this->environment = "SANDBOX";
         }
 
         $authenticator = new Authenticator($environment, $publicKey, $privateKey);
 
         $this->client = new Client(new HttpClient($authenticator));
+
+        $this->authorizedWebhookIps = $authorizedWebhookIps;
     }
 
     /**
@@ -212,6 +220,14 @@ class StuartApi
 
     public function getVatRate() {
         return $this->vatRate;
+    }
+
+    public function getEnvironment() {
+        return $this->environment;
+    }
+
+    public function getuthorizedWebhookIps(){
+        return $this->authorizedWebhookIps;
     }
 
     public function webHook(){
