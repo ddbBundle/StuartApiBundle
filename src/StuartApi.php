@@ -31,6 +31,7 @@ class StuartApi
      * @param string $publicKey
      * @param string $environment
      * @param float $vatRate
+     * @param array $authorizedWebhookIps
      * @throws \Exception
      */
     public function __construct(string $privateKey, string $publicKey, string $environment, float $vatRate, array $authorizedWebhookIps)
