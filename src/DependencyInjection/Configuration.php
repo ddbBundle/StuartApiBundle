@@ -17,7 +17,7 @@ class Configuration implements ConfigurationInterface
             ->children()
             ->scalarNode("private_key")->defaultNull()->end()
             ->scalarNode("public_key")->defaultNull()->end()
-            ->enumNode("environment")->values(["SANDBOX", "PRODUCTION"])->defaultValue("SANDBOX")->end()
+            ->scalarNode("environment")->defaultValue("SANDBOX")->end()
             ->floatNode("vat_rate")->defaultValue(20.0)->end()
             ->arrayNode('authorized_webhook_ips')
             ->arrayPrototype()
