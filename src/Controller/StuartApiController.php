@@ -49,7 +49,14 @@ class StuartApiController extends AbstractController
      * @param $city
      * @return JsonResponse
      */
-    public function nextPickupSlot($city){
+    public function getSlots(Request $request){
+        $city = $request->request->get('city');
+        $type = $request->request->get('type');
+        $date = $request->request->get('date');
+
+        if($date) {
+            $date = \DateTime::createFromFormat('d/m/Y', $date);
+        }
 
         if($city == null){
             return new JsonResponse([
@@ -58,15 +65,20 @@ class StuartApiController extends AbstractController
         }
 
         try{
-            $slot = $this->api->getNextPickupSlot($city);
+            $slots = $this->api->getSlots($city, $type, $date);
         } catch (\Exception $exception) {
             return new JsonResponse([
                 'message' => $this->translator->trans($exception->getMessage(), [], 'Errors')
             ], 500);
         }
-        return new JsonResponse($slot);
+        return new JsonResponse($slots);
     }
 
+    /**
+     * Validate a job with all of it's parameters
+     * @param Request $request
+     * @return JsonResponse
+     */
     public function validateJob(Request $request){
         try {
             $job = $this->api->createJobObjectFromRequest($request);
@@ -79,6 +91,11 @@ class StuartApiController extends AbstractController
         return new JsonResponse(['message' => 'delivery.valid']);
     }
 
+    /**
+     * Get price for a job, check request whether to add VAT or not
+     * @param Request $request
+     * @return JsonResponse
+     */
     public function priceJob(Request $request){
         try {
             $job = $this->api->createJobObjectFromRequest($request);
@@ -97,6 +114,12 @@ class StuartApiController extends AbstractController
         return new JsonResponse($response);
     }
 
+    /**
+     * Dispatch an event when a request is received on the webhook.
+     * An event subscriber can be used to take action on this event
+     * @param Request $request
+     * @return Response
+     */
     public function webhook(Request $request){
 
         $env = $this->api->getEnvironment();

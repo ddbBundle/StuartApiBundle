@@ -21,6 +21,8 @@ class StuartApi
 
     private $environment;
 
+    private $environment_url;
+
     private $vatRate;
 
     private $authorizedWebhookIps;
@@ -45,14 +47,14 @@ class StuartApi
         $this->vatRate = $vatRate;
 
         if($environment === "PRODUCTION"){
-            $environment = Environment::PRODUCTION;
+            $this->environment_url = Environment::PRODUCTION;
             $this->environment = "PRODUCTION";
         } else {
-            $environment = Environment::SANDBOX;
+            $this->environment_url = Environment::SANDBOX;
             $this->environment = "SANDBOX";
         }
 
-        $authenticator = new Authenticator($environment, $publicKey, $privateKey);
+        $authenticator = new Authenticator($this->environment_url, $publicKey, $privateKey);
 
         $this->client = new Client(new HttpClient($authenticator));
 
@@ -79,6 +81,19 @@ class StuartApi
     }
 
     /**
+     * @param $publicKey
+     * @param $privateKey
+     */
+    public function setApiKeys($publicKey, $privateKey){
+        $this->publicKey = $publicKey;
+        $this->privateKey = $privateKey;
+
+        $authenticator = new Authenticator($this->environment_url, $publicKey, $privateKey);
+
+        $this->client = new Client(new HttpClient($authenticator));
+    }
+
+    /**
      * @param string $city
      * @return \DateTime
      * @throws \Exception
@@ -96,6 +111,31 @@ class StuartApi
             }
         }
         throw new \Exception('NOT_FOUND');
+    }
+
+
+    /**
+     * @param $city
+     * @return mixed
+     * @throws \Exception
+     */
+    public function getSlots($city, $type, $date = null){
+
+        $date = $date ?? new \DateTime();
+        $date->add(new \DateInterval('PT15M'));
+
+        if($type == "pickup") {
+            $slots = $this->client->getSchedulingSlotsAtPickup($city, $date);
+        } elseif ($type == "dropoff") {
+            $slots = $this->client->getSchedulingSlotsAtDropoff($city, $date);
+        } else {
+            throw new \Exception("INVALID_TYPE");
+        }
+
+        if(!$slots instanceof SchedulingSlots){
+            throw new \Exception($slots->error);
+        }
+        return $slots->getSlots();
     }
 
 

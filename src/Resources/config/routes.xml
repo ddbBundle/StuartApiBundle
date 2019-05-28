@@ -9,7 +9,7 @@
     <route id="stuart_api_pricing" controller="ddb_stuart_api.stuart_api_controller::priceJob" path="/price">
     </route>
 
-    <route id="stuart_api_next_pickup" controller="ddb_stuart_api.stuart_api_controller::nextPickupSlot" path="/nextPickup/{city}">
+    <route id="stuart_api_get_slots" controller="ddb_stuart_api.stuart_api_controller::getSlots" path="/slots">
     </route>
 
     <route id="stuart_api_webhook" controller="ddb_stuart_api.stuart_api_controller::webhook" path="/webhook">
