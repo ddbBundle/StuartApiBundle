@@ -114,3 +114,4 @@ SAME_ORIGIN_AND_DESTINATION:                      "Même adresse d'origine et de
 INVALID_PACKAGE_SIZE:                             "Taille de paquet incorrecte"
 ADRESSE_CONTACT_TÉLÉPHONE_REQUIS:                 "Veuillez fournir un numéro de téléphone de contact"
 ZONE_NOT_FOUND:                                   "Zone introuvable"
+RECORD_INVALID:                                   "Créneau date / horaire invalide"

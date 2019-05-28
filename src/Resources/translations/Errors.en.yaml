@@ -114,3 +114,4 @@ SAME_ORIGIN_AND_DESTINATION:	                "Same origin and destination addres
 INVALID_PACKAGE_SIZE:	                        "Invalid package size"
 ADDRESS_CONTACT_PHONE_REQUIRED:	                "Please provide a contact phone"
 ZONE_NOT_FOUND:                                 "Zone not found"
+RECORD_INVALID:                                 "Invalid date/time slot"
