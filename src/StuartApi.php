@@ -160,6 +160,12 @@ class StuartApi
 
     public function createJobObjectFromRequest(Request $request){
         $pickupAt = $request->request->get("pickupDate");
+
+        if(empty($pickupDate))
+        {
+            throw new \Exception("NO_PICKUP_DATE");
+        }
+
         if(!$pickupAt instanceof \DateTime){
             $pickupAt = \DateTime::createFromFormat('d/m/Y H:i', $pickupAt);
         }
