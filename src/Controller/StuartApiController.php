@@ -124,7 +124,7 @@ class StuartApiController extends AbstractController
 
         $env = $this->api->getEnvironment();
 
-        if(in_array($_SERVER['REMOTE_ADDR'], $this->api->getuthorizedWebhookIps()[strtolower($env)]))
+        if(in_array($_SERVER['REMOTE_ADDR'], $this->api->getAuthorizedWebhookIps()[strtolower($env)]))
         {
             if($this->eventDispatcher){
                 $event = new WebhookEvent($request);

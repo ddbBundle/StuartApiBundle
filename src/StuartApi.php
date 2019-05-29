@@ -161,7 +161,7 @@ class StuartApi
     public function createJobObjectFromRequest(Request $request){
         $pickupAt = $request->request->get("pickupDate");
 
-        if(empty($pickupDate))
+        if(empty($pickupAt))
         {
             throw new \Exception("NO_PICKUP_DATE");
         }
@@ -273,7 +273,7 @@ class StuartApi
         return $this->environment;
     }
 
-    public function getuthorizedWebhookIps(){
+    public function getAuthorizedWebhookIps(){
         return $this->authorizedWebhookIps;
     }
 

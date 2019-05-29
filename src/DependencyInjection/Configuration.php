@@ -20,7 +20,7 @@ class Configuration implements ConfigurationInterface
             ->scalarNode("environment")->defaultValue("SANDBOX")->end()
             ->floatNode("vat_rate")->defaultValue(20.0)->end()
             ->arrayNode('authorized_webhook_ips')
-            ->arrayPrototype()
+            ->addDefaultsIfNotSet()
                 ->children()
                     ->arrayNode('sandbox')
                         ->defaultValue(["34.254.62.41", "54.194.139.211"])->scalarPrototype()->end()
@@ -29,6 +29,7 @@ class Configuration implements ConfigurationInterface
                         ->defaultValue(["108.128.110.19", "54.171.243.90", "52.51.60.65"])->scalarPrototype()->end()
                     ->end()
                 ->end()
+            ->end()
             ->end();
 
         return $treeBuilder;
