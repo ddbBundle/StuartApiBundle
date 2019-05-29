@@ -273,7 +273,7 @@ class StuartApi
         return $this->environment;
     }
 
-    public function getuthorizedWebhookIps(){
+    public function getAuthorizedWebhookIps(){
         return $this->authorizedWebhookIps;
     }
 
